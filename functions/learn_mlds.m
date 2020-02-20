@@ -10,13 +10,14 @@ end
 J = set_optional_argument('J', I, varargin);
  fprintf('%d\n',J);
 W = ten2vec(set_optional_argument('W', vec2ten(zeros(prod(I), N), I), varargin));
-maxiter = set_optional_argument('MaxIter', 10, varargin);
+maxiter = set_optional_argument('MaxIter', 20, varargin);
 epsilon = set_optional_argument('Epsilon', 1e-5, varargin);
 Type = set_optional_argument('Type', type, varargin);
 model = ten2vec(set_optional_argument('Model', initialize_parameters(I, J), varargin));
 
 iter=0;
-while ((iter < maxiter) && (~(isTiny(model.Q0) || isTiny(model.Q) || isTiny(model.R))))
+% while ((iter < maxiter) && (~(isTiny(model.Q0) || isTiny(model.Q) || isTiny(model.R))))
+while ((iter < maxiter) )
   fprintf('The %d-th iteration...\n',iter+1)
   oldmodel = model;
   iter = iter + 1;

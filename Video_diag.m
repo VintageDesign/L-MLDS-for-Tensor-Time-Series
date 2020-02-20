@@ -17,21 +17,21 @@ Ntest = N - Ntrain;
 X_vectorized = vec2ten(ten2vec(X), prod(I));
 
 % LDS---------------------------------------------------------------------
-
-disp('Fitting LDS...')
-sizes = zeros(prod(I), 1);
-for i = 1:prod(I)
-  sizes(i) = number_of_parameters(prod(I), i,Type);
-end
-clear i
-J_lds = find(sizes >= number_of_parameters(I, J,Type),1);
-clear i sizes
-model_lds = learn_mlds(subcell(X_vectorized, 1:Ntrain),Type, 'J',J_lds );
-result_lds = Generator(X, Ntrain, model_lds);
-err_lds=err(X, Ntrain, result_lds);
-Result_lds=ten_form(X,result_lds);
-
-
+% 
+% disp('Fitting LDS...')
+% sizes = zeros(prod(I), 1);
+% for i = 1:prod(I)
+%   sizes(i) = number_of_parameters(prod(I), i,Type);
+% end
+% clear i
+% J_lds = find(sizes >= number_of_parameters(I, J,Type),1);
+% clear i sizes
+% model_lds = learn_mlds(subcell(X_vectorized, 1:Ntrain),Type, 'J',J_lds );
+% result_lds = Generator(X, Ntrain, model_lds);
+% err_lds=err(X, Ntrain, result_lds);
+% Result_lds=ten_form(X,result_lds);
+% 
+% 
 %preprocess the dataset to fit L-MLDS well--------------------------------
 for i=1:N
     XX{i}=X{i}'; 

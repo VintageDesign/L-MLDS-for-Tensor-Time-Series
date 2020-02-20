@@ -29,7 +29,7 @@ function result = dft_mlds(X,J_lmlds,Ntrain,Type)
         for l=1:prod(I)/I(1)
             result1{j}(:,l)=A1_lds{l}(:,j);
             result2{j}(:,l)=A2_lds{l}(:,j);
-            result{j}(:,l)=result1{j}(:,l)+i*result2{j}(:,l)
+            result{j}(:,l)=result1{j}(:,l)+i*result2{j}(:,l);
         end 
         for p=1:I(1)
             result{j}(p,:)=ifft(result{j}(p,:));
